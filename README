@@ -1,0 +1,66 @@
+### Google OAuth Authentication API
+Backend API que implementa autenticación con Google (OAuth 2.0) y protege endpoints mediante JWT.
+
+### Tecnologías utilizadas
+
+Node.js
+
+Express.js
+
+Passport.js
+
+Google OAuth 2.0
+
+JWT (JSON Web Tokens)
+
+dotenv
+
+### Flujo de autenticación
+
+El cliente inicia el login en /auth/google
+
+Google solicita credenciales y consentimiento
+
+Google redirige al backend con un authorization code
+
+El backend intercambia el code por tokens
+
+Se obtienen los datos del usuario
+
+Se genera un JWT propio
+
+El JWT se usa para acceder a endpoints protegidos
+
+
+
+### Configuración
+1- Clonar el repositorio
+git clone https://github.com/falbarracin/OAuth2.git
+cd google-oauth-api
+
+2 Instalar dependencias
+npm install
+
+3 Variables de entorno
+
+
+PORT=3000
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_CALLBACK_URL=http://localhost:3000/auth/google/callback
+
+JWT_SECRET=super_secret_key
+
+## Ejecución
+npm run dev
+
+
+La API quedará disponible en:
+
+http://localhost:3000
+
+## Endpoints
+
+GET /auth/external
+
